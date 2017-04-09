@@ -18,7 +18,8 @@ import rx.schedulers.Schedulers;
 
 public  class WDRepoPresenter extends WDBasePresenter<WDRepoModel, WDHomeView> {
     public void getRepos() {
-        mModel.getRepos() .subscribeOn(Schedulers.io())
+        mCompositeSubscription.add(mModel.getRepos()
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(new Action0() {
                     @Override
@@ -48,6 +49,7 @@ public  class WDRepoPresenter extends WDBasePresenter<WDRepoModel, WDHomeView> {
                     public void onNext(List<RepoEntity> repoEntities) {
                         mView.updateRepoList(repoEntities);
                     }
-                });
+                })
+        );
     }
 }

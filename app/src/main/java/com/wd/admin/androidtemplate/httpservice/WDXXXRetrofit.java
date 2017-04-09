@@ -9,8 +9,8 @@ import okhttp3.OkHttpClient;
  * Created by admin on 2017/4/9.
  */
 
-public class WDGithubRetrofit extends WDBaseRetrofit{
-    private static final String END_POINT = "https://api.github.com/";
+public class WDXXXRetrofit extends WDBaseRetrofit {
+    private static final String END_POINT = "https://api.xxx.com/";
 
     WDHttpClient githubHttpClient = new WDHttpClient();
 

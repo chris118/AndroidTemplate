@@ -15,7 +15,7 @@ import okhttp3.Response;
  * Created by admin on 2017/4/9.
  */
 
-public class WDGithubHttpClient extends WDBaseOkHttpClient{
+public class WDHttpClient extends WDBaseOkHttpClient{
 
     public static final int CACHE_STALE_LONG = 60 * 60 * 24 * 7;
 

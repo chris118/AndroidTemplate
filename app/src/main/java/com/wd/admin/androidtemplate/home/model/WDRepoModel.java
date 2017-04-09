@@ -1,9 +1,10 @@
 package com.wd.admin.androidtemplate.home.model;
 
 import com.wd.admin.androidtemplate.home.model.bean.RepoEntity;
-import com.wd.admin.androidtemplate.httpservice.WDGihubHttpManager;
+import com.wd.admin.androidtemplate.httpservice.WDHttpManager;
 import com.wd.admin.androidtemplate.httpservice.serviceApi.WDGithubApi;
 import com.wd.admin.base.mvp.WDBaseModel;
+import com.wd.admin.base.util.WDRxUtil;
 
 import java.util.List;
 
@@ -16,6 +17,6 @@ import rx.Observable;
 public class WDRepoModel implements WDBaseModel {
 
     public Observable<List<RepoEntity>> getRepos() {
-        return WDGihubHttpManager.getInstance().createApi(WDGithubApi.class).getRepos("JakeWharton");
+        return WDHttpManager.getInstance().createGithubApi(WDGithubApi.class).getRepos("JakeWharton");
     }
 }
