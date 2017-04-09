@@ -4,16 +4,18 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.wd.admin.base.WDCoreApp;
+
 /**
- * Created by xiaopeng on 16/6/24.
+ * Created by admin on 2017/4/9.
  */
 public class WDNetUtil {
     private WDNetUtil() {
     }
 
     public static boolean isNetworkConnected() {
-        if (WDAppContextUtil.getInstance() != null) {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDAppContextUtil.getInstance()
+        if (WDCoreApp.getInstance() != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDCoreApp.getInstance()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
             if (mNetworkInfo != null) {
@@ -24,8 +26,8 @@ public class WDNetUtil {
     }
 
     public static boolean isWifiConnected() {
-        if (WDAppContextUtil.getInstance() != null) {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDAppContextUtil.getInstance()
+        if (WDCoreApp.getInstance() != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDCoreApp.getInstance()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mWiFiNetworkInfo = mConnectivityManager
                     .getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -37,8 +39,8 @@ public class WDNetUtil {
     }
 
     public static boolean isMobileConnected() {
-        if (WDAppContextUtil.getInstance() != null) {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDAppContextUtil.getInstance()
+        if (WDCoreApp.getInstance() != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDCoreApp.getInstance()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mMobileNetworkInfo = mConnectivityManager
                     .getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
@@ -50,8 +52,8 @@ public class WDNetUtil {
     }
 
     public static int getConnectedType() {
-        if (WDAppContextUtil.getInstance() != null) {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDAppContextUtil.getInstance()
+        if (WDCoreApp.getInstance() != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) WDCoreApp.getInstance()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
             if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
